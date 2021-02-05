@@ -7,7 +7,7 @@ Priority: optional
 
 Package: univention-openvpn-server
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, univention-join (>= 5.0.20-1), shell-univention-lib (>= 2.0.17-1), openvpn, python-netaddr, python-webpy, python-univention-openvpn-common
+Depends: ${shlibs:Depends}, ${misc:Depends}, univention-join (>= 5.0.20-1), shell-univention-lib (>= 2.0.17-1), openvpn, python-netaddr, python3-webpy, python-univention-openvpn-common
 Description: Server package for OpenVPN
 
 Package: univention-openvpn-sitetosite
