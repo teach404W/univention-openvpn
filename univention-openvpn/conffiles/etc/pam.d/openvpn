@@ -20,7 +20,7 @@ auth     sufficient     pam_python.so /usr/share/privacyidea/privacyidea_pam.py 
 ''' % (url, prompt, realm)
 
 if baseConfig.is_true('privacyidea/pam/enable', False):
-        print pam_config
+        print('{}'.format(pam_config))
 
 @!@
 
