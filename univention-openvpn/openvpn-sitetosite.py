@@ -72,7 +72,7 @@ def handler(dn, new, old, command):
         action = 'stop'
 
     cn = new.get('cn', [None])[0]
-    myname = listener.baseConfig['hostname']
+    myname = listener.configRegistry['hostname']
     if cn != myname:
         action = None
         return
@@ -123,11 +123,11 @@ port 444
 ifconfig 10.0.0.1 10.0.0.2
 """
 
-        interfaces_eth0_network = listener.baseConfig['interfaces/eth0/network']
-        interfaces_eth0_netmask = listener.baseConfig['interfaces/eth0/netmask']
-        nameserver1 = listener.baseConfig['nameserver1']
-        domain_domainname = listener.baseConfig['domain/domainname']
-        domainname = listener.baseConfig['domainname']
+        interfaces_eth0_network = listener.configRegistry['interfaces/eth0/network']
+        interfaces_eth0_netmask = listener.configRegistry['interfaces/eth0/netmask']
+        nameserver1 = listener.configRegistry['nameserver1']
+        domain_domainname = listener.configRegistry['domain/domainname']
+        domainname = listener.configRegistry['domainname']
 
         if domain_domainname is not None:
             dodom = domain_domainname

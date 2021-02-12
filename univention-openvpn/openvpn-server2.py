@@ -58,7 +58,7 @@ def handler(dn, new, old, command):
         action = None
         return
 
-    myname = listener.baseConfig['hostname']
+    myname = listener.configRegistry['hostname']
 
     listener.setuid(0)
     lo = ul.getMachineConnection()

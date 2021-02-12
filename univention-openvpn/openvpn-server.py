@@ -71,7 +71,7 @@ def handler(dn, new, old, command):
         return
 
     cn = new.get('cn', [None])[0]
-    myname = listener.baseConfig['hostname']
+    myname = listener.configRegistry['hostname']
     if cn != myname:
         action = None
         return
@@ -144,9 +144,9 @@ push "redirect-gateway def1"
             except:
                 ud.debug(ud.LISTENER, ud.INFO, '3 ignoring interface ' + n)
 
-        nameserver1 = listener.baseConfig['nameserver1']
-        domain_domainname = listener.baseConfig['domain/domainname']
-        domainname = listener.baseConfig['domainname']
+        nameserver1 = listener.configRegistry['nameserver1']
+        domain_domainname = listener.configRegistry['domain/domainname']
+        domainname = listener.configRegistry['domainname']
 
         if domain_domainname is not None:
             dodom = domain_domainname
