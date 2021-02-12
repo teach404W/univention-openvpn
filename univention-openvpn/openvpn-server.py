@@ -99,7 +99,7 @@ def handler(dn, new, old, command):
         try:
             listener.setuid(0)
             os.rename (fn_serverconf + '-disabled', fn_serverconf)
-        except Exception, e:
+        except Exception as e:
             ud.debug(ud.LISTENER, ud.ERROR, '3 Failed to activate server config: %s' % str(e))
         listener.unsetuid()
         action = 'restart'
@@ -425,7 +425,7 @@ def postrun():
         try:
             if os.path.exists(fn_serverconf):
                 os.rename (fn_serverconf, fn_serverconf + '-disabled')
-        except Exception, e:
+        except Exception as e:
             ud.debug(ud.LISTENER, ud.ERROR, '3 Failed to deactivate server config: %s' % str(e))
         listener.unsetuid()
 
@@ -435,7 +435,7 @@ def postrun():
             listener.run('/bin/systemctl', ['systemctl', 'restart', 'openvpn@server.service'], uid=0)
             listener.run('/etc/init.d/univention-firewall', ['univention-firewall', 'restart'], uid=0)
             listener.run('/etc/init.d/display_users', ['display_users', 'restart'], uid=0)
-        except Exception, e:
+        except Exception as e:
             ud.debug(ud.LISTENER, ud.ERROR, '3 Failed to restart services: %s' % str(e))
         listener.unsetuid()
 

@@ -90,7 +90,7 @@ def handler(dn, new, old, command):
         listener.setuid(0)
         try:
             os.rename (fn_sitetositeconf + '-disabled', fn_sitetositeconf)
-        except Exception, e:
+        except Exception as e:
             listener.unsetuid()
             ud.debug(ud.LISTENER, ud.ERROR, '5 Failed to activate site-to-site config: %s' % str(e))
             return
@@ -214,7 +214,7 @@ def postrun():
         try:
             listener.setuid(0)
             os.rename (fn_sitetositeconf, fn_sitetositeconf + '-disabled')
-        except Exception, e:
+        except Exception as e:
             listener.unsetuid()
             ud.debug(ud.LISTENER, ud.ERROR, '5 Failed to deactivate site-to-site config: %s' % str(e))
             return
