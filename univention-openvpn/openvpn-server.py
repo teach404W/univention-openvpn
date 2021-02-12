@@ -307,7 +307,7 @@ def update_masq(masq, network):
     if masq:
         try:
             with open(fn_masqrule, "w") as f:
-                os.chmod(fn_masqrule, 0755)
+                os.chmod(fn_masqrule, 0o755)
                 tmpl = '#!/bin/sh\niptables --wait -t nat -A POSTROUTING -s {} ! -d {} -j MASQUERADE\n'
                 f.write(tmpl.format(network, network))
         except Exception as e:

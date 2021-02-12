@@ -195,7 +195,7 @@ ifconfig 10.0.0.1 10.0.0.2
     #ud.debug(ud.LISTENER, ud.INFO, '5 secret: %s' % (secret))
     univention_openvpn_common.write_rc(5, [secret] if secret else [''], fn_secret)
     listener.setuid(0)
-    os.chmod(fn_secret, 0600)
+    os.chmod(fn_secret, 0o600)
     listener.unsetuid()
 
     univention_openvpn_common.write_rc(5, flist, fn_sitetositeconf)
