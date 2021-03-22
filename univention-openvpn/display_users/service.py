@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # Copyright (c) 2014-2015, bytemine GmbH
 # All rights reserved.
@@ -57,7 +57,7 @@ def connected_users():
     lo = ul.getMachineConnection()
     users = lo.search('univentionOpenvpnAccount=1')
     users = map(lambda user: "%s.openvpn" % user[1].get('uid', [None])[0], users)
-    myname = listener.baseConfig['hostname']
+    myname = listener.configRegistry['hostname']
     me = lo.search('cn=%s' % myname)
     listener.unsetuid()
     connected_users = userlist()
@@ -87,7 +87,7 @@ def license_stats():
     listener.setuid(0)
     lo = ul.getMachineConnection()
     users = lo.search('univentionOpenvpnAccount=1')
-    myname = listener.baseConfig['hostname']
+    myname = listener.configRegistry['hostname']
     me = lo.search('(&(cn=%s)(univentionOpenvpnLicense=*))' % myname)
     try:
         key = me[0][1]['univentionOpenvpnLicense'][0]
@@ -121,7 +121,7 @@ def license_stats():
 class display_users:
     def GET(self, name):
 
-        name = name.encode('ascii','ignore')
+        #name = name.encode('ascii','ignore')
         name_pieces = name.split('/')
 
         if 'connected_users' == name_pieces[0]:
